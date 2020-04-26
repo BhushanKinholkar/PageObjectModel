@@ -9,16 +9,14 @@ import com.qa.base.TestBase;
 public class LoginPage extends TestBase
 {
 
-	private static final RegistrationPage RegistrationPage = null;
-
-	@FindBy(name = "login")
-	WebElement username;
+	@FindBy(name = "email")
+	WebElement username_email;
 	
-	@FindBy(name = "passwd")
+	@FindBy(name = "password")
 	WebElement password;
 	
 	
-	@FindBy(name = "proceed")
+	@FindBy(xpath = "//input[@name='password']//following::div[1]")
 	WebElement loginbtn;
 	
 	
@@ -27,14 +25,18 @@ public class LoginPage extends TestBase
 		PageFactory.initElements(driver, this);
 	}
 	
+	public String verifyTitle()
+	{
+		return driver.getTitle();
+	}
 	
+
 	public HomePage LoginSetup(String un,String Pwd)
 	{
-		username.sendKeys(un);
+		username_email.sendKeys(un);
 		password.sendKeys(Pwd);
 		loginbtn.click();
 		return new HomePage();
-		
 		
 	}
 	

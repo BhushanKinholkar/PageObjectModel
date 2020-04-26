@@ -1,5 +1,6 @@
 package com.qa.test;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -26,17 +27,25 @@ public class LoginPageTest extends TestBase
 		loginpage = new LoginPage();
 	}
 	
+	@Test(priority = 1)
+	public void verifyTitle()
+	{
+		 String title = loginpage.verifyTitle();
+		 Assert.assertEquals(title, "Cogmento CRM");
+	}
 	
-	@Test
+	
+	@Test(priority = 2)
 	public void loginTeest()
 	{
 		homepage = loginpage.LoginSetup(prop.getProperty("username"), prop.getProperty("password"));
-		
+
 	}
 	
 	@AfterMethod
-	public void tearDown()
+	public void tearDown() throws InterruptedException
 	{
+		Thread.sleep(5000);
 		driver.quit();
 	}
 	
