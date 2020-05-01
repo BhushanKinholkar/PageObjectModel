@@ -49,32 +49,6 @@ public class HomePageTest extends TestBase
 		Assert.assertEquals(pagetitle, "Cogmento CRM");
 	}
 	
-	
-	@Test(priority = 3)
-	public void VerifyContactPage()
-	{
-		contactpage = homepage.verifyContactPage();
-	}
-	
-	@Test(priority = 4)
-	public void VerifyCompaniesPage()
-	{
-		companiespage = homepage.verifyCompaniesPage();
-	}
-	
-	@Test(priority = 5)
-	public void VerifyDealsPage()
-	{
-		 dealspage = homepage.verifyDealsPage();
-	}
-	
-	@Test(priority = 6)
-	public void VerifyTasks()
-	{
-		taskspage = homepage.verifyTaskPage();
-	}
-	
-	
 	@Test(priority = 2)
 	public void VerifyLoginUserName()
 	{
@@ -82,7 +56,37 @@ public class HomePageTest extends TestBase
 		System.out.println(username);
 	}
 	
+	@Test(priority = 3)
+	public void verifyDisplayName()
+	{
+		Assert.assertTrue(homepage.VerifyLoginUsernamedisplay());
+	}
 	
+	@Test(priority = 4)
+	public void VerifyContactPage()
+	{
+		contactpage = homepage.verifyContactPage();
+	}
+	
+	@Test(priority = 5)
+	public void VerifyCompaniesPage()
+	{
+		companiespage = homepage.verifyCompaniesPage();
+	}
+	
+	@Test(priority = 6)
+	public void VerifyDealsPage()
+	{
+		 dealspage = homepage.verifyDealsPage();
+	}
+	
+	@Test(priority = 7)
+	public void VerifyTasks()
+	{
+		taskspage = homepage.verifyTaskPage();
+	}
+	
+
 	@AfterMethod
 	public void tearDown() throws InterruptedException
 	{

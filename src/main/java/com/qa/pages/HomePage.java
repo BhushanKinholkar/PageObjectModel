@@ -24,7 +24,6 @@ public class HomePage extends TestBase
 	@FindBy(xpath = "//span[@class='user-display']")
 	WebElement usernameverify;
 	
-
 	
 	public HomePage()
 	{
@@ -40,6 +39,12 @@ public class HomePage extends TestBase
 	public String  VerifyLoginUserName()
 	{
 		return usernameverify.getText();
+	}
+	
+	public boolean VerifyLoginUsernamedisplay()
+	{
+		 boolean val= usernameverify.isDisplayed();
+		 return val;
 	}
 	
 	
